@@ -56,13 +56,13 @@ The *item_cnt_day* (number of products sold in training set) is provided in the 
 
   For convenient analysis, the merge work has been done. In the training dataset after merging, it contains 60 shops with 22171 different items, which from 84 categories. 
 
-![training data overview](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/overview.png)								      		
+![training data overview](https://github.com/waylongo/predict-future-sale/blob/master/figures/overview.png)								      		
 
 ​								Figure 1: training data overview
 
 Because we are predicting a monthly amount of items sold, the aggregated monthly data has been introduced as well. After that, we did the data visualization of whole company sale in these 34 months. In Figure 2, we can tell there is seasonality and decreasing trend exist in this data set.  To estimate the trend component and seasonal component, we tried to use the “*decompose ()*” function in R. This function estimates the trend, seasonal, and irregular components of a time series that can be described using an additive model.
 
-   ![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/month_sales.png)
+   ![](https://github.com/waylongo/predict-future-sale/blob/master/figures/month_sales.png)
 
 ​							Figure 2: Monthly sale for the whole company
 
@@ -70,7 +70,7 @@ Because we are predicting a monthly amount of items sold, the aggregated monthly
 
 We find each category has different number of items. But this doesn’t give us much insights of what we really want to predict. So next we will explore “*item-cnt-day*” this response feature, shown in Figure 3.
 
-​    ![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/sale_1.png)
+​    ![](https://github.com/waylongo/predict-future-sale/blob/master/figures/sale_1.png)
 
 ​					Figure 3. Number of items sold in each month in different shops
 
@@ -90,7 +90,7 @@ Error: Multiplicative because the variation in the remainder shows a change in v
 
   Seasonality: Multiplicative as since the remainder is varying in magnitude every year. From figure here, we can clear see this dataset has obvious "seasonality" and a decreasing "Trend".
 
-![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/deconpostion.png)
+![](https://github.com/waylongo/predict-future-sale/blob/master/figures/deconpostion.png)
 
 ​								Figure 4. The decomposition plot
 
@@ -100,7 +100,7 @@ Error: Multiplicative because the variation in the remainder shows a change in v
 
 The final submission of ETS has returned score 1.14840, which is around top 50% ranking in the public board.
 
-![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/ets.png)
+![](https://github.com/waylongo/predict-future-sale/blob/master/figures/ets.png)
 
 IV.B. LSTM model
 
@@ -160,13 +160,13 @@ pred = model_lstm.predict(test)
 
 The training and validation curve is shown in Figure 5.
 
-![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/train_valid_curve.png)
+![](https://github.com/waylongo/predict-future-sale/blob/master/figures/train_valid_curve.png)
 
 ​								Figure 5. Training and validation curve
 
   I submitted the predicted set to Kaggle and got public score 1.01933, around top 40% ranking in the public board.
 
-![](figures\lstm.png)
+![](https://github.com/waylongo/predict-future-sale/blob/master/figures/lstm.png)
 
   Then changed the LSTM structures and tuned the hyper-parameters. The above result is the best we can get for now. This is OK but it should have lots of improvements to make. For now, we only use “item_id”, “shop_id”, “item_price” and “date” these a few features. This may not be enough to make a good prediction.
 
@@ -174,13 +174,13 @@ The training and validation curve is shown in Figure 5.
 
   The training and validation curve using more features is shown in Figure 6.
 
-![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/train_valid_features.png)
+![](https://github.com/waylongo/predict-future-sale/blob/master/figures/train_valid_features.png)
 
 ​						Figure 6. Training and validation curve with more features
 
   Then the result of LSTM with more features is 0.94356, around top 30% ranking in the public board.
 
-![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/lstm_features.png)
+![](https://github.com/waylongo/predict-future-sale/blob/master/figures/lstm_features.png)
 
 IV.C. XGBoost model (gradient boosting tree method)
 
@@ -214,7 +214,7 @@ Y_test = model.predict(X_test).clip(0, 20)
 
   I submitted the XGBoost predicted result to Kaggle and got public score 0.90646, around top 15% ranking in the public board.
 
-![](https://github.com/waylongo/predict-future-sale/tree/master/figures/figures/xgboost.png)
+![](https://github.com/waylongo/predict-future-sale/blob/master/figures/xgboost.png)
 
 ## Conclusions
 
